@@ -1,5 +1,5 @@
 import express from "express";
-import connectDB from "./db";
+import connectDB from "./db.js";
 
 const PORT = 3000;
 const app = express();
@@ -23,7 +23,7 @@ app.get("/books", async (req, res, next)=>{
 async function startServer(){
     try{
         db= await connectDB();
-        
+
         app.listen(PORT, () =>{
             console.log(`server running on http://localhost:${PORT}`);
         });
