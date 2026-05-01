@@ -1,13 +1,19 @@
 import express from "express";
+import connectDB from "./db";
 
 const PORT = 3000;
 const app = express();
+
+let db;
 
 app.use(express.json());
 
 app.get("/books", async (req, res, next)=>{
     try{
-        const books = [{name:'Ciccio'}];
+        const booksCollection= db.collection("Library");
+        const filter={};
+        
+        const books = await booksCollection.find(filter).toArray();
         res.json(books);
     }catch(err){
         next(err);
@@ -16,6 +22,8 @@ app.get("/books", async (req, res, next)=>{
 
 async function startServer(){
     try{
+        db= await connectDB();
+        
         app.listen(PORT, () =>{
             console.log(`server running on http://localhost:${PORT}`);
         });
