@@ -1,5 +1,24 @@
 {
+  "name": "project_work_2026",
+  "version": "1.0.0",
+  "description": "Project Work ITS Olivetti maggio 2026",
+  "homepage": "https://github.com/73mario73/Project_Work_2026#readme",
+  "bugs": {
+    "url": "https://github.com/73mario73/Project_Work_2026/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/73mario73/Project_Work_2026.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongodb": "^7.2.0"
   }
 }
