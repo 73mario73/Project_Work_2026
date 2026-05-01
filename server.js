@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.get("/books", async (req, res, next)=>{
     try{
-        const books = [];
+        const books = [{name:'Ciccio'}];
         res.json(books);
     }catch(err){
         next(err);
