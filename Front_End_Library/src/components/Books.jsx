@@ -13,7 +13,7 @@ function Books()
         {
             try 
             {
-                const response = await axios.get();
+                const response = await axios.get("http://localhost:3000/Library"); //non ho capito chi decide questo url
             }
             catch(err)
             {
@@ -22,6 +22,8 @@ function Books()
 
 
         }
+
+        fetchBooks();
 
     })
 
