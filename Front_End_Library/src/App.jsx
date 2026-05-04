@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import './App.css' 
+import Books from './components/Books.jsx'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
   return (
     <>
-      <section id="center">
+      <Books/>
+      {/*<section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -113,6 +113,7 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+      */}
     </>
   )
 }
