@@ -4,8 +4,6 @@ import './App.css'
 
 import Books from './components/Books.jsx';
 
-import Books from './components/Books';
-
 function App() {
 	const [count, setCount] = useState(0)
 
