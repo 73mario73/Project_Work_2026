@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Book from './Book.jsx';
+
 function Books(){
     console.log("Books()");
 
@@ -50,7 +52,11 @@ function Books(){
 
     return (
         <section>
-            <h2>Books!</h2>
+            {
+               Books.length > 0 ?  (Books.map((book) => (
+                <Book key={book.id} bookP={book}/>
+               ))) : ( <p>Al momento non ci sono libri nel catalogo.</p> )
+            }
         </section>
     )
 }
