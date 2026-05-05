@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import connectDB from "./db.js";
 
 const PORT = 3000;
@@ -6,6 +7,7 @@ const app = express();
 
 let db;
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/books", async (req, res, next)=>{

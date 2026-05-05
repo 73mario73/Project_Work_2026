@@ -6,7 +6,9 @@ import Book from './Book.jsx';
 function Books()
 {
     const [err, setErr] = useState(null);
-    //io qua ora devo recuperare il db 
+    const [books, setBooks] = useState();
+
+    
     useEffect( () => //usa effetto di
     {
         async function fetchBooks() //funzione asincrona di fetch dati: funxione in cui vado a recuperare
