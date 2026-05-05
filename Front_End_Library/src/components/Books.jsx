@@ -53,7 +53,7 @@ function Books(){
     return (
         <section>
             {
-               Books.length > 0 ?  (Books.map((book) => (
+               books.length > 0 ?  (books.map((book) => (
                 <Book key={book.id} bookP={book}/>
                ))) : ( <p>Al momento non ci sono libri nel catalogo.</p> )
             }
