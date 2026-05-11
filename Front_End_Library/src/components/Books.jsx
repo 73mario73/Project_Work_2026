@@ -51,13 +51,13 @@ function Books(){
         return <p>{err.message}</p>
 
     return (
-        <section>
+        <>
             {
                books.length > 0 ?  (books.map((book) => (
                 <Book key={book.id} bookP={book}/>
                ))) : ( <p>Al momento non ci sono libri nel catalogo.</p> )
             }
-        </section>
+        </>
     )
 }
 

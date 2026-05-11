@@ -8,10 +8,7 @@ function App() {
 	const [count, setCount] = useState(0)
 
 	return (
-		<>
-			<h>Header del sito della biblioteca</h>
 			<Books/>
-		</>
 	)
 }
 
