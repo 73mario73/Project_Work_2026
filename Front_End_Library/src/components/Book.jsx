@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function Book({bookP})
 {
     return (
-        <h2>hi</h2>
+        <h2>{bookP.title}</h2>
     )
 }
 
