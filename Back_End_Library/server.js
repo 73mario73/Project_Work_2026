@@ -34,6 +34,25 @@ app.get("/books", async (req, res, next)=>{
     }
 });
 
+app.get("/books/search/:text", async (req, res, next)=>{
+    try{
+        console.log("Searching database")
+        const booksCollection= db.collection("Library");
+        const searchTxt = req.params.text;
+
+        const results = await booksCollection.find({
+            $or: [
+                { title: { $regex: searchTxt, $options: "i"}},
+                { author: { $regex: searchTxt, $options: "i"}}
+            ]
+        }).toArray();
+        console.log(searchTxt)
+        res.json(results);
+    }catch(err){
+        next(err);
+    }
+});
+
 async function startServer(){
     try{
         db= await connectDB();
