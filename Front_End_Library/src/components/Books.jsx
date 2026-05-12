@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Book from './Book.jsx';
+import Grid from "@mui/material/Grid";
 
 function Books(){
     console.log("Books()");
@@ -52,11 +53,25 @@ function Books(){
 
     return (
         <>
-            {
-               books.length > 0 ?  (books.map((book) => (
-                <Book key={book.id} bookP={book}/>
-               ))) : ( <p>Al momento non ci sono libri nel catalogo.</p> )
-            }
+            <Grid 
+                container 
+                spacing={{ xs: 2, md: 3 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+                direction= "row"
+                sx= {{justifyContent: "center", alignItems: "flex-start"}}
+            >
+                {
+                books.length > 0 ?  (books.map((book) => (
+                    <Grid
+                        key={books.id}
+                        size= {{xs: 2, sm: 3, md: 3}}
+                        sx= {{boxShadow: 1}}
+                    >
+                        <Book key={book.id} bookP={book}/>  
+                    </Grid>
+                ))) : ( <p>Al momento non ci sono libri nel catalogo.</p> )
+                }
+            </Grid>
         </>
     )
 }
