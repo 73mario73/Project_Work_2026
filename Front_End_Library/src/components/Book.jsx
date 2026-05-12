@@ -31,8 +31,8 @@ function Book({bookP})
                     {bookP.author}
                 </Typography>
                 <Typography gutterBottom variant="body1">
-                    {bookP.release}
-                    {bookP.genre}
+                    {bookP.release} <br /> {""}
+                    {bookP.genre}   <br /> {""}
                     {bookP.ISBN}
                 </Typography>
             </CardContent>
