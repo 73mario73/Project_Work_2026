@@ -11,8 +11,9 @@ function App() {
 	{
 		setResearch(research);
 		//vorremmo che appena metto nuovo carattere cerca cose possibili con quello, quindi forse questa funzione va fatta da un'altra parte
+
 	}
-	
+//devo fare funz che appena scrivo lettera suggerisce autori, titoli, etc=>cercare menu a tendina che esce + fare f che si collega a books
 	return (
 		<div>
 			<Box
