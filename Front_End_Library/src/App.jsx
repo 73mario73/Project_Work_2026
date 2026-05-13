@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, MenuItem } from '@mui/material';
 import Books from './components/Books.jsx';
 
 function App() {
 	//const [count, setCount] = useState(0)
 	const [research, setResearch] = useState("");
+	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];
 
 	function handleResearch(research) 
 	{
@@ -16,7 +17,7 @@ function App() {
 		<div>
 			<Box
 				component="form"
-				sx={{ '& > :not(style)': { m: 1, width: '200', maxWidth: '60%' }}}
+				sx={{ '& > :not(style)': { m: 1, width: '200', maxWidth: '60%' }}} // sx={{ '& .MuiTextField-root': 
 				noValidate
 				autoComplete="off" 
 			>
@@ -29,6 +30,23 @@ function App() {
 					onResearch={handleResearch}
 					color="success" 
 				/>
+				
+				<TextField
+					id="standard-select-filter"
+					select
+					label="Select"
+					defaultValue="title"
+					//helperText="Please select your currency"
+					variant="standard"
+					color="success"
+					sx={{width: '200px'}}
+				>
+					{criteria.map((option) => (
+						<MenuItem key={option.value} value={option.value}>
+							{option.label}
+						</MenuItem>
+					))}
+				</TextField>
 			</Box>
 
 			<Books/> {/*searchQuery={research} */}
@@ -36,3 +54,5 @@ function App() {
 	)
 }
 export default App;
+
+
