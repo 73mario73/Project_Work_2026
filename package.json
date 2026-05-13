@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "scripts": {
+    "dev": "Mario Faillace & Giulia Bellesia",
+    "start": "concurrently \"npm run dev --prefix Back_End_Library \" \" npm run dev --prefix Front_End_Library \""
+  }
+}
