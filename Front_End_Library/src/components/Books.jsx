@@ -11,7 +11,8 @@ function Books(){
     const [refresh, setRefresh] = useState(0);
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(null);
-    
+
+    //Funzione per ottenere dal backend la lista di tutti i libri
     useEffect(() => {
         async function fetchPosts()
         {
@@ -24,12 +25,10 @@ function Books(){
                 console.log(response.data);
 
                 setBooks(response.data);
-                //setLoading(false);
             }
             catch(e)
             {
                 console.log(e);
-                //setLoading(false);
                 setErr(e);
             }
             finally
@@ -47,10 +46,11 @@ function Books(){
 
     if(loading)
         return <p>Loading...</p>
-    
+
     if(err)
         return <p>{err.message}</p>
 
+    // Visualizzazione del container dove verranno messi i libri
     return (
         <>
             <Grid 
@@ -60,7 +60,7 @@ function Books(){
                 direction= "row"
                 sx= {{justifyContent: "center", alignItems: "flex-start"}}
             >
-                {
+                { /* map dei singoli libri nella collezione, che richiama la funzione in Book.jsx per la visualizzazione dei singoli */
                 books.length > 0 ?  (books.map((book) => (
                     <Grid
                         key={books.id}
