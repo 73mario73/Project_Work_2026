@@ -36,7 +36,7 @@ app.get("/books", async (req, res, next)=>{
         }
         
         //Output in stile json degli elementi nella collezione, con eventuale filtro applicato
-        const books = await booksCollection.find(filter).toArray();
+        const books = await booksCollection.find(filter, { sort: { author: 1, title: 1 }}).toArray();
         res.json(books);
     }catch(err){
         next(err);
@@ -61,7 +61,7 @@ app.get("/books/:text", async (req, res, next)=>{
                 { ISBN: { $regex: searchTxt, $options: "i"}},
                 { genre: { $regex: searchTxt, $options: "i"}},
             ]
-        }).toArray();
+        }, { sort: { author: 1, title: 1 }}).toArray();
 
         console.log(searchTxt);
         res.json(results);
