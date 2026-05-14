@@ -55,7 +55,9 @@ app.get("/books/search/:text", async (req, res, next)=>{
         const results = await booksCollection.find({
             $or: [
                 { title: { $regex: searchTxt, $options: "i"}},
-                { author: { $regex: searchTxt, $options: "i"}}
+                { author: { $regex: searchTxt, $options: "i"}},
+                { ISBN: { $regex: searchTxt, $options: "i"}},
+                { genre: { $regex: searchTxt, $options: "i"}},
             ]
         }).toArray();
 
