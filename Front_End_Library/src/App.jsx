@@ -9,6 +9,10 @@ function App() {
 	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];
 	const [search, setSearch] = useState("")
 
+	const handleChange = e => {
+		setSearch(e.target.value);
+	}
+
 	return (
 		<div>
 			<Box
@@ -17,7 +21,7 @@ function App() {
 				noValidate
 				autoComplete="off" 
 			>
-				<SearchBar searchP={search}/>
+				<SearchBar searchP={search} handleChange={handleChange}/>
 			</Box>
 
 			<Books searchP={search}/> {/*searchQuery={research} */}

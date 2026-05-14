@@ -3,18 +3,11 @@ import axios from "axios";
 
 import { TextField, MenuItem } from "@mui/material";
 
-function SearchBar({searchP})
+function SearchBar({searchP, handleChange})
 {
     const [research, setResearch] = useState("");
 	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];
 
-	function handleResearch(research) 
-	{
-		setResearch(research);
-		console.log(research);
-		//vorremmo che appena metto nuovo carattere cerca cose possibili con quello, quindi forse questa funzione va fatta da un'altra parte
-
-	}
 //devo fare funz che appena scrivo lettera suggerisce autori, titoli, etc=>cercare menu a tendina che esce + fare f che si collega a books
 
     return (
@@ -24,7 +17,7 @@ function SearchBar({searchP})
             id="filled-basic" 
             label="Hai un nome in mente?"  // oppure placeholder?
             variant="standard"
-            onChange={handleResearch}
+            onChange={handleChange}
             color="success" 
 		/>
         <TextField

@@ -56,7 +56,7 @@ function Books({searchP}){//{researchP}
                 spacing={{ xs: 2, md: 3 }}
                 columns={{ xs: 4, sm: 8, md: 12 }}
                 direction= "row"
-                sx= {{justifyContent: "center", alignItems: "flex-start"}}
+                sx= {{justifyContent: "left", alignItems: "flex-start"}}
             >
                 { /* map dei singoli libri nella collezione, che richiama la funzione in Book.jsx per la visualizzazione dei singoli */
                 books.length > 0 ?  (books.map((book) => (
