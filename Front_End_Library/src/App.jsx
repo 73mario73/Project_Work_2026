@@ -8,9 +8,15 @@ function App() {
 	const [research, setResearch] = useState("");
 	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];
 	const [search, setSearch] = useState("")
+	const [refresh, setRefresh] = useState(0);
 
 	const handleChange = e => {
 		setSearch(e.target.value);
+		onRefresh();
+	}
+
+	const onRefresh = () => {
+		setRefresh(refresh + 1);
 	}
 
 	return (
@@ -24,7 +30,7 @@ function App() {
 				<SearchBar searchP={search} handleChange={handleChange}/>
 			</Box>
 
-			<Books searchP={search}/> {/*searchQuery={research} */}
+			<Books searchP={search} onRefresh={onRefresh} refresh={refresh}/> {/*searchQuery={research} */}
 		</div>
 	)
 }
