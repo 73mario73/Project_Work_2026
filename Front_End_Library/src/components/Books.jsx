@@ -4,7 +4,7 @@ import axios from "axios";
 import Book from './Book.jsx';
 import Grid from "@mui/material/Grid";
 
-function Books(){
+function Books(){//{researchP}
     console.log("Books()");
 
     const [books, setBooks] = useState([]);
@@ -53,6 +53,7 @@ function Books(){
     // Visualizzazione del container dove verranno messi i libri
     return (
         <>
+        <button onClick={onRefresh}>Refresh</button> {/*andrebbe messo in modo sensato tipo dopo inserimento*/}
             <Grid 
                 container 
                 spacing={{ xs: 2, md: 3 }}
