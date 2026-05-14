@@ -7,7 +7,7 @@ function App() {
 	//const [count, setCount] = useState(0)
 	const [research, setResearch] = useState("");
 	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];
-	const [sb, setSb] = useState({})
+	const [search, setSearch] = useState("")
 
 	return (
 		<div>
@@ -17,13 +17,11 @@ function App() {
 				noValidate
 				autoComplete="off" 
 			>
-				<SearchBar searchBarP={sb}/>
+				<SearchBar searchP={search}/>
 			</Box>
 
-			<Books/> {/*searchQuery={research} */}
+			<Books searchP={search}/> {/*searchQuery={research} */}
 		</div>
 	)
 }
 export default App;
-
-

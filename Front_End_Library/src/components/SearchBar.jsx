@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { TextField, MenuItem } from "@mui/material";
 
-function SearchBar({searchBarP})
+function SearchBar({searchP})
 {
     const [research, setResearch] = useState("");
 	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];

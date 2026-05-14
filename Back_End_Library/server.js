@@ -44,13 +44,15 @@ app.get("/books", async (req, res, next)=>{
 });
 
 // Funzione per ottenere i libri nel db filtrando per parole che potrebbero essere sia nel campo autore che titolo.
-// Link per cercare: http://localhost:3000/books/search/<Campo di ricerca>
-app.get("/books/search/:text", async (req, res, next)=>{
+// Link per cercare: http://localhost:3000/books/<Campo di ricerca>
+app.get("/books/:text", async (req, res, next)=>{
     try{
         console.log("Searching database")
         const booksCollection= db.collection("Library");
         const searchTxt = req.params.text;
         
+        console.log(searchTxt);
+
         //Creazione del filtro, utilizzo di un $or nella regEx per cercare in maniera indipendente in titolo e autore
         const results = await booksCollection.find({
             $or: [
@@ -61,7 +63,7 @@ app.get("/books/search/:text", async (req, res, next)=>{
             ]
         }).toArray();
 
-        console.log(searchTxt)
+        console.log(searchTxt);
         res.json(results);
     }catch(err){
         next(err);

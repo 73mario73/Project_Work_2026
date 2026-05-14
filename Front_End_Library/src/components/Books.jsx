@@ -4,7 +4,7 @@ import axios from "axios";
 import Book from './Book.jsx';
 import Grid from "@mui/material/Grid";
 
-function Books(){//{researchP}
+function Books({searchP}){//{researchP}
     console.log("Books()");
 
     const [books, setBooks] = useState([]);
@@ -19,10 +19,7 @@ function Books(){//{researchP}
             try
             {
                 setLoading(true);
-
-                const response = await axios.get("http://localhost:3000/books");
-
-                console.log(response.data);
+                const response = await axios.get(`http://localhost:3000/books/${searchP}`);
 
                 setBooks(response.data);
             }
