@@ -20,22 +20,6 @@ function SearchBar({searchP, handleChange})
             onChange={handleChange}
             color="success" 
 		/>
-        <TextField
-            id="standard-select-filter"
-            select
-            label="Select"
-            defaultValue="title"
-            //helperText="Please select your currency"
-            variant="standard"
-            color="success"
-            sx={{width: '200px'}}
-        >
-            {criteria.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                </MenuItem>
-            ))}
-        </TextField>
     </>
     )
 }
