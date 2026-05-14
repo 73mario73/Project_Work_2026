@@ -1,19 +1,14 @@
 import { useState } from 'react';
 import { Box, TextField, MenuItem } from '@mui/material';
 import Books from './components/Books.jsx';
+import SearchBar from './components/SearchBar.jsx';
 
 function App() {
 	//const [count, setCount] = useState(0)
 	const [research, setResearch] = useState("");
 	const criteria = [{value: "author", label: "Autore"}, {value: "title", label: "Titolo"}, {value: "genre", label: "Genere"}, {value: "year", label: "Anno"}];
+	const [sb, setSb] = useState({})
 
-	function handleResearch(research) 
-	{
-		setResearch(research);
-		//vorremmo che appena metto nuovo carattere cerca cose possibili con quello, quindi forse questa funzione va fatta da un'altra parte
-
-	}
-//devo fare funz che appena scrivo lettera suggerisce autori, titoli, etc=>cercare menu a tendina che esce + fare f che si collega a books
 	return (
 		<div>
 			<Box
@@ -22,32 +17,7 @@ function App() {
 				noValidate
 				autoComplete="off" 
 			>
-				<TextField 
-					fullWidth 
-					id="filled-basic" 
-					label="Hai un nome in mente?"  // oppure placeholder?
-					variant="standard" 
-					researchP={research}
-					onResearch={handleResearch}
-					color="success" 
-				/>
-				
-				<TextField
-					id="standard-select-filter"
-					select
-					label="Select"
-					defaultValue="title"
-					//helperText="Please select your currency"
-					variant="standard"
-					color="success"
-					sx={{width: '200px'}}
-				>
-					{criteria.map((option) => (
-						<MenuItem key={option.value} value={option.value}>
-							{option.label}
-						</MenuItem>
-					))}
-				</TextField>
+				<SearchBar searchBarP={sb}/>
 			</Box>
 
 			<Books/> {/*searchQuery={research} */}
